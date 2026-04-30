@@ -70,7 +70,25 @@
       <div class="table-wrapper">
         <div class="table-header">
           <span class="table-header-title">Datos recientes del formulario</span>
-          <a href="comprobantes.html" class="table-link">Ir a comprobantes →</a>
+          <div style="display: flex; gap: 10px; align-items: center">
+            <a href="comprobantes.html" class="table-link"
+              >Ir a comprobantes →</a
+            >
+            <button
+              id="exportExcelBtn"
+              class="table-link"
+              style="background: none; border: none; cursor: pointer"
+            >
+              Exportar hoy (.xlsx)
+            </button>
+            <button
+              id="exportPdfBtn"
+              class="table-link"
+              style="background: none; border: none; cursor: pointer"
+            >
+              Exportar hoy (.pdf)
+            </button>
+          </div>
         </div>
         <table>
           <thead>

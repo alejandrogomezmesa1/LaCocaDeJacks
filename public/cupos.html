@@ -38,18 +38,22 @@
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-label">Total cupos</div>
-          <div class="stat-value">100</div>
+          <div id="totalCupos" class="stat-value">100</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Cupos reservados</div>
-          <div class="stat-value">65</div>
+          <div id="reservedCupos" class="stat-value">65</div>
           <div class="progress-wrapper">
-            <div class="progress-bar" style="width: 65%"></div>
+            <div
+              id="cuposProgress"
+              class="progress-bar"
+              style="width: 65%"
+            ></div>
           </div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Disponibles</div>
-          <div class="stat-value">35</div>
+          <div id="availableCupos" class="stat-value">35</div>
         </div>
       </div>
 
@@ -82,33 +86,15 @@
               <th>Plan</th>
               <th>Estado Cupo</th>
               <th>Fecha Registro</th>
+              <th>Acción</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Andrés Felipe G.</strong></td>
-              <td>El Poblado</td>
-              <td>Semanal</td>
-              <td><span class="status-chip confirmed">Confirmado</span></td>
-              <td>28/04/2026</td>
-            </tr>
-            <tr>
-              <td><strong>Mariana Vélez</strong></td>
-              <td>Envigado</td>
-              <td>Mensual</td>
-              <td><span class="status-chip confirmed">Confirmado</span></td>
-              <td>29/04/2026</td>
-            </tr>
-            <tr>
-              <td><strong>Carlos Ruiz</strong></td>
-              <td>Laureles</td>
-              <td>Diario</td>
-              <td><span class="status-chip pending">Pendiente Pago</span></td>
-              <td>29/04/2026</td>
-            </tr>
+            <!-- Filas dinámicas cargadas por js/admin.js -->
           </tbody>
         </table>
       </div>
     </div>
+    <script src="js/admin.js"></script>
   </body>
 </html>
