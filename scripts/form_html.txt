@@ -1,0 +1,56 @@
+Que dias de la semana el formulario estara disponible?
+
+Se debe de añadir verificacion de suscripcion activa, no puede registrarse un usuario que esta activo
+
+
+Cargar un comprobante, validar que este en proceso de pago, que no este pagado ni cancelado
+
+Si el cliente elige dos direcciones de entrega debe de estar la opcion en el formulario
+Como se maneja la entrega para el modo hibrido?
+El formulario debe de preguntar si tiene una direccion fija o unos dias en la casa y otro dias en el trabajo ademas de especificar las direcciones y todo lo demas debe de permitir que el cliente indique que en que direccion se entrega y que dias en que direccion se entrega
+En el caso de que tenga dos direcciones debe de enviar los datos de las dos direcciones
+En el caso de que tenga una direccion debe de enviar los datos de la direccion
+
+El sistema debe de verificar si el cliente tiene los dos juegos de cocas, si el cliente indica que no y la desea adquirir con nosotros el valor de la suscripcion se le suma 70.000cop por las cocas 
+
+el formulario debe de llenar la tabla de pedidos, clientes, y ademas comprobantes para tener un registro de los usuarios que se han registrado
+
+Mirar como se van a subir los comprobantes para que se guarden en la base de datos en la tabla comprobantes, o mejor aun poder enviar el comprobante al WhatsApp del cliente despues de que el se registre para tener un registro de su pago. Se debe generar un codigo de registro para el cliente, este codigo se envia al whatsapp del cliente despues de que se confirme el pago, este codigo servira como identificacion del cliente para poder reclamar sus entregas, ademas se debe generar un codigo de barras para el codigo de registro del cliente, este codigo de barras se mostrara en el dashboard para el administrador pueda escanearlo y verificar el pago del cliente, y se debe de poder desactivar la suscripcion del cliente desde el dashboard para el administrador pueda desactivar la suscripcion del cliente y no pueda reclamar sus entregas, ademas de poder cambiar el valor de las suscripciones y los juegos de cocas.
+
+El código QR del registro se debe generar en el dashboard con una libreria, si no se tiene se debe instalar, este código QR debe de ser escaneable y debe de llevar a una pagina para verificar el pago del cliente, además de tener el código de registro que es un código de barras.
+
+Verificacion de cupos.
+Se debe de mostrar un mensaje al cliente que diga que no hay cupos disponibles, ademas de un enlace para que pueda verificar el estado de su suscripcion.
+
+-Solo se contratan los 5 días de la semana como mínimo.
+
+-Para iniciar se debe comprar el juego de cocas, que se cancelan al iniciar el servicio, siendo el valor de inicio total de 145 para una semana, no es obligatorio comprar las cocas directamente con la empresa, se puede conseguir por aparte, pero se debe tener en cuenta que deben cumplir con los tamaños preestablecidos para cumplir con los estándares logísticos y de empaque(sopa,ensalada,seco,botella para el jugo).
+-deben ser dos juegos de cocas, uno se entrega cuando se recibe la coca llena para el próximo dia y asi sucesivamente.
+-la moto no se puede dejar sola, por ende no se suben a apartamentos,oficinas. se debe bajar hasta la calle para el encuentro con el mensajero.
+-solo se esperan 5 minutos, además de esto el mensajero se comunica con el cliente 5 minutos antes de la llegada al punto de encuentro.
+-si por algún motivo no necesita el servicio ese dia, no se aplaza para la siguiente semana ni se hacen reembolsos.
+-es comida fresca, que se prepara en la noche previa a la entrega.
+-son menus rotativos cada semana.
+-las proteínas son:3 días cerdo,1 dia res, 1 dia pollo.
+-no se tienen en cuenta observaciones minimas, solo puede ser que por ejemplo no coma cerdo o no le guste el pollo, pero recomendaciones especializadas como por ejemplo sin zanahoria,sin cilantro no se pueden garantizar.
+-para contrataciones del servicio el horario es de lunes a miércoles hasta las 8pm, a mas tardar el jueves.
+-datos del cliente: nombre,direccion y teléfono.
+-se tiene un grupo de difusión por whatsap solo para clientes.
+en donde se comparte cada miércoles el menú de la siguiente semana. dado esto el cliente tiene hasta el viernes a las 10pm para confirmar el servicio de la próxima semana.en caso de que no continue con el servicio debe de recoger las cocas el próximo lunes hasta las 7pm.
+-los cupos son limitados.
+-todos los sábados a las 10 se hace el pedido a proveedores de las porciones,de la siguiente semana por cada cliente.
+-no se hacen reembolsos de ningún tipo por parte del cliente.
+-se hacen reembolsos cuando es por una problemática de la empresa el reembolso es inmediato.
+-se manejan planes,semales(75000),quincenales(150000) y mensuales(285000).
+-Lavar la coca es responsabilidad del cliente, entregarla seca,limpia además no se espera al cliente para que la lave si no la tiene lista para la entrega al momento de la llegada del domiciliario debe hacerle llegar a la cocina.
+-se recomienda al cliente que revise el estado de la coca cuando se le entrega, puede que en el transcurso de la entrega algo sale mal.
+
+
+
+
+DIRECCION: calle 28a #65a 24, Medellín, Antioquia.
+TELEFONO: 3116437887
+SLOGAN: Te cocinamos, empacamos y te llevamos hasta la puerta de trabajo la coca para el almuerzo.
+CORREO: lacocadejacksmed@gmail.com
+HORARIO DE ATENCION: Lunes a viernes 8am-5pm Sabados 8am-1pm
+
