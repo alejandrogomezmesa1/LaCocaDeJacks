@@ -15,7 +15,7 @@
     <!-- NAVBAR -->
     <nav class="navbar">
       <div class="navbar-brand">
-        <div class="navbar-logo"><img src="assets/LaCocaLogo.png" alt="" /></div>
+        <div class="navbar-logo"><img src="LaCocaLogo.png" alt="" /></div>
         <span class="navbar-title">La Coca</span>
       </div>
       <div class="navbar-nav">
@@ -29,7 +29,9 @@
     <div class="container">
       <div class="page-header">
         <h1 class="page-title">Resumen General</h1>
-        <p class="page-subtitle">Panel de control y métricas en tiempo real</p>
+        <p class="page-subtitle">
+          Datos clave de comprobantes enviados desde el formulario
+        </p>
       </div>
 
       <!-- STATS CARDS -->
@@ -61,52 +63,54 @@
       </div>
 
       <!-- TABLE SECTION -->
-      <div class="section-title">Resumen de Comprobantes</div>
+      <div class="section-title">Información enviada desde el formulario</div>
       <div class="table-wrapper">
         <div class="table-header">
-          <span class="table-header-title">Comprobantes recientes</span>
+          <span class="table-header-title">Datos recientes del formulario</span>
           <a href="comprobantes.html" class="table-link">Ir a comprobantes →</a>
         </div>
         <table>
           <thead>
             <tr>
-              <th>N° comprobante</th>
-              <th>Cliente</th>
-              <th>Tipo</th>
+              <th>N°</th>
+              <th>Nombre</th>
+              <th>Documento</th>
+              <th>Celular</th>
+              <th>Plan</th>
               <th>Monto</th>
-              <th>Estado</th>
-              <th>Fecha</th>
               <th>Acción</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>#COC-1024</td>
+              <td>01</td>
               <td>Juan Pérez</td>
-              <td>Factura</td>
+              <td>CC 1.234.567</td>
+              <td>320 555 1234</td>
+              <td>Semanal</td>
               <td>$320.000</td>
-              <td><span class="badge badge-warning">Pendiente</span></td>
-              <td>29/04/2026</td>
               <td>
                 <a href="comprobantes.html" class="table-link">Revisar</a>
               </td>
             </tr>
             <tr>
-              <td>#COC-1023</td>
-              <td>María Gómez</td>
-              <td>Ticket</td>
+              <td>02</td>
+              <td>Ana Torres</td>
+              <td>CE 7.890.123</td>
+              <td>310 555 5678</td>
+              <td>Quincenal</td>
               <td>$58.000</td>
-              <td><span class="badge badge-success">Aprobado</span></td>
-              <td>28/04/2026</td>
-              <td><a href="comprobantes.html" class="table-link">Ver</a></td>
+              <td>
+                <a href="comprobantes.html" class="table-link">Revisar</a>
+              </td>
             </tr>
             <tr>
-              <td>#COC-1022</td>
+              <td>03</td>
               <td>Logística S.A.</td>
-              <td>Nota crédito</td>
+              <td>NIT 901.234.567</td>
+              <td>601 555 0000</td>
+              <td>Semanal</td>
               <td>$120.000</td>
-              <td><span class="badge badge-danger">Rechazado</span></td>
-              <td>28/04/2026</td>
               <td>
                 <a href="comprobantes.html" class="table-link">Revisar</a>
               </td>
