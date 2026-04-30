@@ -1,0 +1,78 @@
+# .gitignore — Recomendado para mayor seguridad
+# Revisa antes de ignorar archivos que quieras versionar (ej. lockfiles)
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Env & secrets
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+envrc
+
+# Credenciales y claves privadas
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.crt
+*.cert
+*.asc
+*.secret
+*-key.json
+service-account*.json
+google-credentials.json
+.aws/
+.aws/credentials
+.aws/config
+.azure/
+.gcloud/
+.ssh/
+
+# IDEs y editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Logs y reportes
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+
+# Build / Output
+/dist
+/build
+/out
+/.next
+/.cache
+/coverage
+/.nyc_output
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Temporal / cachés
+/tmp
+/temp
+*.tmp
+.cache/
+
+# Archivos de pruebas y resultados locales
+/test-output
+
+# Otros
+*.env.*.local
+
+# Si usas Docker, puedes ignorar archivos sensibles del host
+# /docker-compose.override.yml
