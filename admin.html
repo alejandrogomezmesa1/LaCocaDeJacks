@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Coca - Resumen General</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style></style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <div class="navbar-logo"><img src="LaCocaLogo.png" alt="" /></div>
+        <span class="navbar-title">La Coca</span>
+      </div>
+      <div class="navbar-nav">
+        <a href="index-nuevo.html" class="nav-link active">Inicio</a>
+        <a href="comprobantes.html" class="nav-link">Comprobantes</a>
+      </div>
+      <div class="navbar-user">Admin</div>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container">
+      <div class="page-header">
+        <h1 class="page-title">Resumen General</h1>
+        <p class="page-subtitle">Panel de control y métricas en tiempo real</p>
+      </div>
+
+      <!-- STATS CARDS -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Ventas de la Semana</div>
+          <div class="stat-value">$2.450K</div>
+          <div class="stat-change positive">
+            <span class="stat-icon">▲</span>
+            <span>12% vs semana pasada</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Comprobantes por Revisar</div>
+          <div class="stat-value" style="color: var(--danger)">18</div>
+          <div class="stat-change neutral">
+            <span>Requieren atención inmediata</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-label">Comprovantes revisados</div>
+          <div class="stat-value">Datos reales</div>
+          <div class="stat-change neutral">
+            <span>Comporvantes revisados (fecha - dia)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLE SECTION -->
+      <div class="section-title">Resumen de Comprobantes</div>
+      <div class="table-wrapper">
+        <div class="table-header">
+          <span class="table-header-title">Comprobantes recientes</span>
+          <a href="comprobantes.html" class="table-link">Ir a comprobantes →</a>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>N° comprobante</th>
+              <th>Cliente</th>
+              <th>Tipo</th>
+              <th>Monto</th>
+              <th>Estado</th>
+              <th>Fecha</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#COC-1024</td>
+              <td>Juan Pérez</td>
+              <td>Factura</td>
+              <td>$320.000</td>
+              <td><span class="badge badge-warning">Pendiente</span></td>
+              <td>29/04/2026</td>
+              <td>
+                <a href="comprobantes.html" class="table-link">Revisar</a>
+              </td>
+            </tr>
+            <tr>
+              <td>#COC-1023</td>
+              <td>María Gómez</td>
+              <td>Ticket</td>
+              <td>$58.000</td>
+              <td><span class="badge badge-success">Aprobado</span></td>
+              <td>28/04/2026</td>
+              <td><a href="comprobantes.html" class="table-link">Ver</a></td>
+            </tr>
+            <tr>
+              <td>#COC-1022</td>
+              <td>Logística S.A.</td>
+              <td>Nota crédito</td>
+              <td>$120.000</td>
+              <td><span class="badge badge-danger">Rechazado</span></td>
+              <td>28/04/2026</td>
+              <td>
+                <a href="comprobantes.html" class="table-link">Revisar</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,360 @@
+:root {
+  --primary: #ea6a02;
+  --primary-dark: #1e3a8a;
+  --primary-light: #eff6ff;
+  --bg-main: #f9fafb;
+  --bg-card: #ffffff;
+  --text-dark: #111827;
+  --text-light: #6b7280;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-neo: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f9fafb;
+  color: var(--text-dark);
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  min-height: 100vh;
+  padding-top: 70px;
+  overflow: hidden; /* Quitar scroll general */
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary);
+  cursor: pointer;
+}
+.navbar-logo {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.navbar-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 8px;
+}
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+.nav-link:hover {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+.nav-link.active {
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.navbar-user {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* --- CONTAINER --- */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  height: calc(100vh - 70px); /* Altura completa menos navbar */
+  overflow: hidden; /* Sin scroll */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- PAGE HEADER --- */
+.page-header {
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* --- DASHBOARD CONTAINER --- */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* --- PANEL LISTA --- */
+.panel-lista {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.titulo-seccion {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: #2c3e50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: #f9fafb;
+  flex-shrink: 0;
+}
+
+.table-container {
+  flex: 1;
+  overflow-y: auto; /* Scroll solo en la tabla */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  padding: 1.2rem 2rem;
+  text-align: left;
+  background: #f9fafb;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+tbody tr {
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background-color: #fff9f5;
+}
+tbody tr.active {
+  background-color: #fff3eb;
+  border-left: 4px solid var(--primary);
+}
+
+td {
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+/* Estilos de Plan y Estado */
+.badge-plan {
+  background: #e67e2220;
+  color: #e67e22;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.estado-texto {
+  font-weight: 600;
+  color: #f39c12;
+}
+
+/* --- PANEL VISOR --- */
+.panel-visor {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.visor-header {
+  text-align: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: #f9fafb;
+  flex-shrink: 0;
+}
+
+.visor-header h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.visor-header p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.img-comprobante-container {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img-comprobante-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.visor-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.btn-aprobar {
+  background: var(--success);
+  color: white;
+}
+
+.btn-aprobar:hover {
+  background: #059669;
+}
+
+.btn-rechazar {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-rechazar:hover {
+  background: #dc2626;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  .navbar-title {
+    font-size: 1.1rem;
+  }
+  .navbar-nav {
+    gap: 0;
+  }
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+  .page-title {
+    font-size: 1.5rem;
+  }
+  .dashboard-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .panel-visor {
+    height: 400px;
+  }
+
+  thead th,
+  td {
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  .titulo-seccion {
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+  }
+}
