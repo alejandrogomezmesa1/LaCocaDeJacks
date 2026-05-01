@@ -4,7 +4,7 @@ require('dotenv').config();
 const sequelize = new Sequelize(
     process.env.DB_NAME || 'lacocadejacks',
     process.env.DB_USER || 'root',
-    process.env.DB_PASSWORD || '',
+    process.env.DB_PASSWORD || '123456',
     {
         host: process.env.DB_HOST || 'localhost',
         dialect: 'mysql',
@@ -15,9 +15,9 @@ const sequelize = new Sequelize(
 const connectDB = async () => {
     try {
         await sequelize.authenticate();
-        console.log('✅ Conexión a la base de datos MySQL establecida exitosamente.');
+        console.log('Conexión a la base de datos MySQL establecida exitosamente.');
     } catch (error) {
-        console.error('❌ Error al conectar a la base de datos:', error);
+        console.error('Error al conectar a la base de datos:', error);
     }
 };
 

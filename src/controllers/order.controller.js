@@ -99,6 +99,15 @@ const createOrder = async (req, res) => {
         });
     } catch (error) {
         console.error('Error al crear el pedido:', error);
+        
+        // Manejar error de correo duplicado
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            return res.status(400).json({
+                success: false,
+                message: 'El correo electrónico ya está registrado con otro documento.'
+            });
+        }
+
         res.status(500).json({
             success: false,
             message: 'Error al registrar el pedido',
