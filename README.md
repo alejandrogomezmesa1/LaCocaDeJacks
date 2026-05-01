@@ -59,12 +59,11 @@ Esto usa `nodemon` y recarga al detectar cambios.
 6. Endpoints útiles
 
 - Form submit (landing): `POST /api/orders` — formulario principal.
-- Admin (UI estática en `public/` que consume estas rutas):
-  - `GET /api/admin/stats`
+- Admin (UI estática en `public/admin.html` que consume estas rutas):
+  - `GET /api/admin/clientes`
   - `GET /api/admin/comprobantes`
-  - `GET /api/admin/cupos`
-  - `GET /api/admin/export/daily.xlsx` (requiere `exceljs`)
-  - `GET /api/admin/export/daily.pdf` (requiere `pdfkit`)
+  - `POST /api/admin/comprobantes/:id/status`
+  *La exportación a Excel se realiza directamente desde el frontend usando ExcelJS y FileSaver.*
 
 7. Dependencias para exportar (opcional)
 

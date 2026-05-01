@@ -1,10 +1,10 @@
 
 // ─── Mock Data ─────────────────────────────────────────────────────────────────
-const nombres = ["Ana García","Carlos Rodríguez","María López","Javier Martínez","Laura Pérez","Diego Hernández","Valentina Torres","Andrés Gómez","Camila Díaz","Felipe Morales","Isabella Vargas","Sebastián Castro","Daniela Reyes","Miguel Jiménez","Sofía Ruiz","Mateo Sánchez","Lucía Fernández","Gabriel Ramírez","Paula Medina","Tomás Ortega","Elena Muñoz","Ricardo Silva","Paola Guerrero","Nicolás Ramos","Juliana Cruz","Alejandro Ríos","Natalia Mendoza","Roberto Aguilar","Carolina Álvarez","Esteban Suárez"];
+/* const nombres = ["Ana García","Carlos Rodríguez","María López","Javier Martínez","Laura Pérez","Diego Hernández","Valentina Torres","Andrés Gómez","Camila Díaz","Felipe Morales","Isabella Vargas","Sebastián Castro","Daniela Reyes","Miguel Jiménez","Sofía Ruiz","Mateo Sánchez","Lucía Fernández","Gabriel Ramírez","Paula Medina","Tomás Ortega","Elena Muñoz","Ricardo Silva","Paola Guerrero","Nicolás Ramos","Juliana Cruz","Alejandro Ríos","Natalia Mendoza","Roberto Aguilar","Carolina Álvarez","Esteban Suárez"];
 const barrios = ["Chapinero","Usaquén","Suba","Kennedy","Fontibón","Engativá","Bosa","Ciudad Bolívar","San Cristóbal","Rafael Uribe","Teusaquillo","Barrios Unidos","La Candelaria","Santa Fe","Los Mártires","Puente Aranda","Tunjuelito","Antonio Nariño","Usme","Sumapaz"];
 const planes = ["semanal","quincenal","mensual"];
 const statuses = ["activo","activo","activo","activo","pendiente","vencido","cancelado"];
-const metodos = ["Nequi","Bancolombia","Daviplata","Transferencia"];
+const metodos = ["Nequi","Bancolombia","Daviplata","Transferencia"]; */
 
 function rnd(n){return Math.floor(Math.random()*n);}
 function seedRnd(s){let x=Math.sin(s)*10000;return x-Math.floor(x);}
@@ -26,11 +26,19 @@ function genClients(n){
     for(let j=0;j<nhist;j++){
       historial.push({id:`h${i}-${j}`,plan,monto:plan==='semanal'?75000:plan==='quincenal'?150000:285000,metodo:metodos[Math.floor(seedRnd(i*10+j)*4)],fecha:new Date(2025,j*2,15).toISOString().split('T')[0],status:'aprobado'});
     }
+    const correo = `${nombre.split(' ')[0].toLowerCase()}.${nombre.split(' ')[1] ? nombre.split(' ')[1].toLowerCase() : ''}${i}@gmail.com`;
+    const cedula = `${Math.floor(10000000 + seedRnd(i+300)*900000000)}`;
+    const barrio = barrios[i%barrios.length];
+    const facturacionElectronica = s > 0.5 ? 'Si' : 'No';
     list.push({
       id:`c${i}`,
       nombre,
-      telefono:`3${Math.floor(s*9+1)}${String(Math.floor(seedRnd(i+100)*100000000)).padStart(8,'0')}`,
-      direccion:`Cra ${Math.floor(s*99)+1} #${Math.floor(s2*99)+1}-${Math.floor(seedRnd(i+200)*99)+1}, ${barrios[i%barrios.length]}`,
+      correo,
+      cedula,
+      telefono:`3${Math.floor(s*9+1)}${String(Math.floor(seedRnd(i+100)*10000000)).padStart(7,'0')}`,
+      direccion:`Cra ${Math.floor(s*99)+1} #${Math.floor(s2*99)+1}-${Math.floor(seedRnd(i+200)*99)+1}`,
+      barrio,
+      facturacionElectronica,
       plan,
       status,
       diasRestantes:dias,
@@ -200,7 +208,7 @@ function validatePayment(id, status){
   if(!p) return;
   p.status=status;
   selectedPaymentIds.delete(id);
-  showToast(status==='aprobado'?`✅ Pago aprobado: ${p.clienteNombre}`:`❌ Pago rechazado: ${p.clienteNombre}`, status==='aprobado'?'green':'red');
+  showToast(status==='aprobado'?`Pago aprobado: ${p.clienteNombre}`:`Pago rechazado: ${p.clienteNombre}`, status==='aprobado'?'green':'red');
   renderPayments();
   renderStats();
 }
@@ -210,7 +218,7 @@ function bulkAction(status){
   const count=selectedPaymentIds.size;
   selectedPaymentIds.forEach(id=>{ const p=payments.find(x=>x.id===id); if(p) p.status=status; });
   selectedPaymentIds=new Set();
-  showToast(status==='aprobado'?`✅ ${count} pagos aprobados`:`❌ ${count} pagos rechazados`, status==='aprobado'?'green':'red');
+  showToast(status==='aprobado'?`${count} pagos aprobados`:` ${count} pagos rechazados`, status==='aprobado'?'green':'red');
   renderPayments();
   renderStats();
 }
@@ -306,7 +314,7 @@ function openPayment(index){
         </div>
       </div>
       <div class="text-sm p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <div class="font-semibold text-blue-900 mb-2">⌨️ Atajos de Teclado:</div>
+        <div class="font-semibold text-blue-900 mb-2">Atajos de Teclado:</div>
         <div class="grid grid-cols-2 gap-2 text-xs">
           <div><kbd>←</kbd> <kbd>→</kbd> Navegar</div>
           <div><kbd>A</kbd> Aprobar y continuar</div>
@@ -480,20 +488,42 @@ function openClientModal(id){
         }
       </div>
       <hr/>
-      <!-- Contacto -->
+      <!-- Contacto e Identificación -->
       <div>
         <h3 class="font-semibold mb-2 flex items-center gap-2 text-sm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.46 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.37 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6.72 6.72l1.74-1.74a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 23 16.92z"/></svg>
-          Información de Contacto
+          Información Personal
         </h3>
-        <div class="grid md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg text-sm">
+        <div class="grid md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg text-sm mb-4">
           <div>
-            <div class="text-xs text-gray-500 mb-0.5">Teléfono</div>
+            <div class="text-xs text-gray-500 mb-0.5">Cédula</div>
+            <div class="font-medium">${c.cedula}</div>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Correo Electrónico</div>
+            <a href="mailto:${c.correo}" class="font-medium text-blue-600 hover:underline">${c.correo}</a>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Teléfono (Celular)</div>
             <a href="https://wa.me/57${c.telefono}" target="_blank" class="font-medium text-green-600 hover:underline">${c.telefono}</a>
           </div>
           <div>
-            <div class="text-xs text-gray-500 mb-0.5">Dirección de Entrega</div>
+            <div class="text-xs text-gray-500 mb-0.5">Facturación Electrónica</div>
+            <div class="font-medium">${c.facturacionElectronica}</div>
+          </div>
+        </div>
+        <h3 class="font-semibold mb-2 flex items-center gap-2 text-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Información de Entrega
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4 bg-gray-50 p-4 rounded-lg text-sm">
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Dirección</div>
             <div class="font-medium">${c.direccion}</div>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 mb-0.5">Barrio/Sector</div>
+            <div class="font-medium">${c.barrio}</div>
           </div>
         </div>
       </div>
