@@ -162,12 +162,38 @@ function getFilteredPayments(){
 }
 
 function renderPayments(){
+  const statusFilter=document.getElementById('payment-status-filter')?.value||'pendiente';
   const list=getFilteredPayments();
   const container=document.getElementById('payments-container');
+  
+  let badgeClass = 'badge-yellow';
+  let bgClass = 'bg-yellow-500';
+  let labelText = 'pendientes';
+  
+  if (statusFilter === 'aprobado') {
+    badgeClass = 'badge-green';
+    bgClass = 'bg-green-500';
+    labelText = 'aprobados';
+  } else if (statusFilter === 'rechazado') {
+    badgeClass = 'badge-red';
+    bgClass = 'bg-red-500';
+    labelText = 'rechazados';
+  } else if (statusFilter === '') {
+    badgeClass = 'badge-blue';
+    bgClass = 'bg-blue-500';
+    labelText = 'en total';
+  }
+
   const badge=document.getElementById('pending-badge');
-  if(badge) badge.textContent=`${list.length} pendientes`;
+  if(badge) {
+    badge.textContent=`${list.length} ${labelText}`;
+    badge.className = `badge ${badgeClass}`;
+  }
   const bc=document.getElementById('badge-count');
-  if(bc) bc.textContent=list.length;
+  if(bc) {
+    bc.textContent=list.length;
+    bc.className = `${bgClass} text-white text-xs px-2 py-0.5 rounded-full animate-pulse-badge`;
+  }
 
   updateBulkUI();
 
